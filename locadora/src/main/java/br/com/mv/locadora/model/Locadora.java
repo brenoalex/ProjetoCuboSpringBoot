@@ -6,20 +6,21 @@ public class Locadora {
     private String nome;
     private String endereco;
     private boolean temRetirada;
+    private Franquia franquia;
 
-    public Locadora(Long id, String nome, String endereco, boolean temRetirada) {
-        this.id = id;
+    public Locadora( String nome, String endereco, boolean temRetirada, Franquia franquia) {
         this.nome = nome;
         this.endereco = endereco;
         this.temRetirada = temRetirada;
+        this.franquia = franquia;
     }
 
-    public Long getId() {
-        return id;
+    public Franquia getFranquia() {
+        return franquia;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFranquia(Franquia franquia) {
+        this.franquia = franquia;
     }
 
     public String getNome() {

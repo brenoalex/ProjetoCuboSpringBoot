@@ -1,33 +1,34 @@
 package br.com.mv.locadora.controller;
 
 import br.com.mv.locadora.DTO.LocadoraDto;
+import br.com.mv.locadora.model.Franquia;
 import br.com.mv.locadora.model.Locadora;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/api/v1/locadora")
 public class PrimeiroEndpoint {
 
-    @RequestMapping("/")
-    @ResponseBody
+    @GetMapping("/")
     public List<LocadoraDto> ola() {
 
         Locadora locadora = new Locadora(
-            1L,
                 "Aki Discos",
                 "Imbiribeira",
-                true
+                true,
+                new Franquia("Aki","Av. São Paulo","1978")
         );
 
         Locadora locadora2 = new Locadora(
-                2L,
                 "Saraiva",
                 "Pe. Carapuçeiro"
-                , true
+                , true,
+                new Franquia("Aki","Av. São Paulo","1982")
         );
 
         return LocadoraDto.converter(Arrays.asList(locadora, locadora2));
