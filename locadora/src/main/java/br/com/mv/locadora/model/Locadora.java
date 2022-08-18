@@ -1,14 +1,31 @@
 package br.com.mv.locadora.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "LOCADORA_TABLE")
 public class Locadora {
 
+    @Id @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+
+    @Column(length = 70, nullable = false)
     private String nome;
+
+    @Column(length = 70, nullable = false)
     private String endereco;
+
+    @Column( nullable = false )
     private boolean temRetirada;
+
+    @ManyToOne
     private Franquia franquia;
 
-    public Locadora( String nome, String endereco, boolean temRetirada, Franquia franquia) {
+    public Locadora( ) {
+
+    }
+
+    public Locadora(String nome, String endereco, boolean temRetirada, Franquia franquia) {
         this.nome = nome;
         this.endereco = endereco;
         this.temRetirada = temRetirada;

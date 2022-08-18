@@ -1,23 +1,30 @@
 package br.com.mv.locadora.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
-
+@Entity
+@Table(name = "FRANQUIA_TABLE")
 public class Franquia {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 160, nullable = false)
     private String nome;
+    @Column( nullable = false )
     private String enderecoMatriz;
+    @Column
     private String dataDeFundacao;
 
     public Franquia(String nome, String enderecoMatriz, String dataDeFundacao) {
         this.nome = nome;
         this.enderecoMatriz = enderecoMatriz;
         this.dataDeFundacao = dataDeFundacao;
+    }
+
+    public Franquia () {
+
     }
 
     public Long getId() {
