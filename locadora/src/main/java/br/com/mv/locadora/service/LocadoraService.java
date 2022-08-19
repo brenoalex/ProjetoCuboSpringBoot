@@ -19,4 +19,15 @@ public class LocadoraService {
 
     }
 
+    public List<Locadora> searchLocadoraByNome(String nome) {
+        return locadorasRepository.findByNome(nome);
+    }
+
+    public List<Locadora> searchLocadoraByNomeFranquia(String nomeFranquia) {
+        return locadorasRepository.findByFranquia_Nome(nomeFranquia);
+    }
+
+    public Locadora saveLocadora(Locadora locadora) {
+        return locadorasRepository.save(locadora);
+    }
 }
